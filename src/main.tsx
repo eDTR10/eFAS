@@ -75,62 +75,23 @@ const router = createBrowserRouter([
         element: <Navigate to="/admin/page1" />, 
       },
       {
-        path: "/admin/page1",
+        path: "/admin/menu",
         element: <>
         <Suspense fallback={<Loader />}>
-          <Page1 />
+        <Menu />
         </Suspense>
       </>,
       },
       {
-        path: "/admin/page2",
+        path: "/admin/settings",
         element: <>
         <Suspense fallback={<Loader />}>
-          <Page2 />
+        <Settings />
         </Suspense>
       </>,
       },
       
-      {
-        path: "/react-vite-supreme/menu",
-        element: <App />,
-        children: [
-          {
-            path: "/react-vite-supreme/menu",
-            element: <Navigate to="/react-vite-supreme/menu/dashboard" />,
-          },
-          {
-            path: "/react-vite-supreme/menu/dashboard",
-            element: <>
-              <Suspense fallback={<Loader />}>
-                <Menu />
-              </Suspense>
-            </>,
-          },
-          
-        ]
-        
-      },
-      {
-        path: "/react-vite-supreme/menu/settings",
-        element: <App />,
-        children: [
-          {
-            path: "/react-vite-supreme/menu/settings",
-            element: <Navigate to="/react-vite-supreme/menu/settings/dashboard" />,
-          },
-          {
-            path: "/react-vite-supreme/menu/settings/dashboard",
-            element: <>
-              <Suspense fallback={<Loader />}>
-                <Settings />
-              </Suspense>
-            </>,
-          },
-          
-        ]
-        
-      },
+      
 
 
       {

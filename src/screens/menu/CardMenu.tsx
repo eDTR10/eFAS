@@ -6,10 +6,6 @@ import { useNavigate } from "react-router-dom"
 function CardMenu() {
     const navigate = useNavigate()
 
-    const toSettings = () => {
-        navigate('/react-vite-supreme/menu/settings')
-       
-    };
   return (
     <div className="flex items-center justify-center h-screen w-full ">
         <div className="grid grid-cols-3 gap-4 w-full p-5 phone:grid-cols-2 sm:grid-cols-2 ">
@@ -50,7 +46,10 @@ function CardMenu() {
             </Card>
 
             {/* Settings*/}
-            <Card className="bg-primary cursor-pointer hover:bg-dark transition duration-300" onClick={toSettings}>
+            <Card className="bg-primary cursor-pointer hover:bg-dark transition duration-300" onClick={() => {
+        navigate('/admin/settings')
+       
+    }}>
                 <CardHeader>
                     <CardTitle className="flex justify-center">
                     <SettingsIcon className="text-white w-14 h-14 animate-bounce"></SettingsIcon>

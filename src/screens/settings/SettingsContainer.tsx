@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom"
 function SettingsContainer() {
     const navigate = useNavigate();
 
-    const backToMenu = () => {
-        navigate("/react-vite-supreme/menu");
-    }
+  
   return (
     <>
         <div className="relative">
             <div className="absolute -left-[700px] phone:left-0 sm:-left-48  top-32 items-start justify-start">
-                <Button className="phone:w-[150%] sm:w-[150%]" onClick={backToMenu}>
+                <Button className="phone:w-[150%] sm:w-[150%]" onClick={() => {
+        navigate("/admin/menu");
+    }}>
                     Go Back
                 </Button>
             </div>

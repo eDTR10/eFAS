@@ -16,18 +16,58 @@ const Page2= lazy(() =>
   wait(1300).then(() => import("./screens/page2.tsx"))
 );
 
+
+
+const Login = lazy(() =>
+  wait(1300).then(() => import("./screens/auth/Login.tsx"))
+);
+const ResetPassword= lazy(() =>
+  wait(1300).then(() => import("./screens/auth/ResetPassword.tsx"))
+);
+const ForgotPassword = lazy(() =>
+  wait(1300).then(() => import("./screens/auth/forgotPass.tsx"))
+);
 const router = createBrowserRouter([
   {
-    path: "/react-vite-supreme/",
+
+    path: "/",
+    element: <Navigate to="/login" />,
+  },
+  {
+    path: "/login",
+    element: <>
+      <Suspense fallback={<Loader />}>
+        <Login />
+      </Suspense>
+    </>,
+  },
+  {
+    path: "/forgot-password",
+    element: <>
+      <Suspense fallback={<Loader />}>
+        <ForgotPassword />
+      </Suspense>
+    </>,
+  },
+  {
+    path: "/reset-password/:uid/:token",
+    element:  <>
+    <Suspense fallback={<Loader />}>
+      <ResetPassword  />
+    </Suspense>
+  </>,
+  },
+  {
+    path: "/admin/",
     element: <App />,
     
     children: [
       {
-        path: "/react-vite-supreme/", 
-        element: <Navigate to="/react-vite-supreme/page1" />, 
+        path: "/admin/", 
+        element: <Navigate to="/admin/page1" />, 
       },
       {
-        path: "/react-vite-supreme/page1",
+        path: "/admin/page1",
         element: <>
         <Suspense fallback={<Loader />}>
           <Page1 />
@@ -35,7 +75,7 @@ const router = createBrowserRouter([
       </>,
       },
       {
-        path: "/react-vite-supreme/page2",
+        path: "/admin/page2",
         element: <>
         <Suspense fallback={<Loader />}>
           <Page2 />

@@ -13,7 +13,11 @@ const Page1= lazy(() =>
 );
 
 const Menu= lazy(() =>
-  wait(1300).then(() => import("./screens/menu/menu.tsx"))
+  wait(1300).then(() => import("./screens/menu/MenuContainer.tsx"))
+);
+
+const Settings= lazy(() =>
+  wait(1300).then(() => import("./screens/settings/SettingsContainer.tsx"))
 );
 
 const Page2= lazy(() =>
@@ -63,6 +67,27 @@ const router = createBrowserRouter([
               </Suspense>
             </>,
           },
+          
+        ]
+        
+      },
+      {
+        path: "/react-vite-supreme/menu/settings",
+        element: <App />,
+        children: [
+          {
+            path: "/react-vite-supreme/menu/settings",
+            element: <Navigate to="/react-vite-supreme/menu/settings/dashboard" />,
+          },
+          {
+            path: "/react-vite-supreme/menu/settings/dashboard",
+            element: <>
+              <Suspense fallback={<Loader />}>
+                <Settings />
+              </Suspense>
+            </>,
+          },
+          
         ]
         
       },

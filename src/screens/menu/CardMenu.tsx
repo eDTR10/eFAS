@@ -4,17 +4,17 @@ import { useNavigate } from "react-router-dom"
 
 
 function CardMenu() {
-    const Navigate = useNavigate()
+    const navigate = useNavigate()
 
-    const toAddSaro = () => {
-        // 
-        console.log("Nigana ra")
-    }
+    const toSettings = () => {
+        navigate('/react-vite-supreme/menu/settings')
+       
+    };
   return (
-    <div className="border border-border flex items-center justify-center h-screen w-full ">
+    <div className="flex items-center justify-center h-screen w-full ">
         <div className="grid grid-cols-3 gap-4 w-full p-5 phone:grid-cols-2 sm:grid-cols-2 ">
             {/* Add Saro */}
-            <Card className="bg-primary cursor-pointer" onClick={toAddSaro}>
+            <Card className="bg-primary cursor-pointer" >
                 <CardHeader>
                     <CardTitle className="flex justify-center">
                     <PlusCircleIcon className="text-white w-14 h-14 animate-bounce"></PlusCircleIcon>
@@ -50,7 +50,7 @@ function CardMenu() {
             </Card>
 
             {/* Settings*/}
-            <Card className="bg-primary cursor-pointer hover:bg-dark transition duration-300">
+            <Card className="bg-primary cursor-pointer hover:bg-dark transition duration-300" onClick={toSettings}>
                 <CardHeader>
                     <CardTitle className="flex justify-center">
                     <SettingsIcon className="text-white w-14 h-14 animate-bounce"></SettingsIcon>

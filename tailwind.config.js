@@ -30,6 +30,18 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
   },
     extend: {
+
+      fontFamily: {
+        'gblack': ['Geist Black'],
+        'gbold': ['Geist Bold'],
+        'gextrabold': ['Geist ExtraBold'],
+        'glight': ['Geist Light'],
+        'gmedium': ['Geist Medium'],
+        'gregular': ['Geist Regular'],
+        'gsemibold': ['Geist SemiBold'],
+        'gthin': ['Geist Thin'],
+        'gultralight': ['Geist UltraLight'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

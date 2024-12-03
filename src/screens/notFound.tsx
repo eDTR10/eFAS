@@ -9,7 +9,7 @@ const NotFound = () => {
         <div className=' min-w-[300px] w-[50%] flex flex-col items-center'>
             <div className='flex items-center gap-3 '>
                
-            <h1 className=' text-4xl font-bold md:text-[30px] text-secondary-foreground  '>404 not Found</h1>
+            <h1 className=' text-4xl font-bold md:text-[30px] text-secondary-foreground font-gbold  '>404 not Found</h1>
             </div>
             
             <p className='mt-3 text-lg font-medium text-accent-foreground'>Oops! The page you are looking for does not exist.</p>

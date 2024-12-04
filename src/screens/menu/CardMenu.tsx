@@ -13,7 +13,7 @@ function CardMenu() {
             <Card className="bg-primary cursor-pointer" >
                 <CardHeader>
                     <CardTitle className="flex justify-center">
-                    <PlusCircleIcon className="text-white w-14 h-14 animate-bounce"></PlusCircleIcon>
+                    <PlusCircleIcon className="text-white w-14 h-14 "></PlusCircleIcon>
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -25,7 +25,7 @@ function CardMenu() {
             <Card className="bg-primary cursor-pointer">
                 <CardHeader>
                     <CardTitle className="flex justify-center">
-                    <ViewIcon className="text-white w-14 h-14 animate-bounce"></ViewIcon>
+                    <ViewIcon className="text-white w-14 h-14 "></ViewIcon>
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -37,7 +37,7 @@ function CardMenu() {
             <Card className="bg-primary cursor-pointer hover:bg-dark transition duration-300">
                 <CardHeader>
                     <CardTitle className="flex justify-center">
-                    <ClipboardIcon className="text-white w-14 h-14 animate-bounce"></ClipboardIcon>
+                    <ClipboardIcon className="text-white w-14 h-14 "></ClipboardIcon>
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -46,13 +46,10 @@ function CardMenu() {
             </Card>
 
             {/* Settings*/}
-            <Card className="bg-primary cursor-pointer hover:bg-dark transition duration-300" onClick={() => {
-        navigate('/admin/settings')
-       
-    }}>
+            <Card className="bg-primary cursor-pointer hover:bg-dark transition duration-300" onClick={() => { navigate('/admin/settings') }}>
                 <CardHeader>
                     <CardTitle className="flex justify-center">
-                    <SettingsIcon className="text-white w-14 h-14 animate-bounce"></SettingsIcon>
+                    <SettingsIcon className="text-white w-14 h-14 "></SettingsIcon>
                     </CardTitle>
                 </CardHeader>
                 <CardContent>

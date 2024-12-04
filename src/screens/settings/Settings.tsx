@@ -1,4 +1,7 @@
-import { Button } from "@/components/ui/button"
+
+import AddTeamDialog from "./AddTeamDialog"
+import ViewTeam from "./ViewTeam"
+
 
 function Settings() {
   return (
@@ -8,10 +11,10 @@ function Settings() {
             <div className="">
                 <p className="text-2xl font-gbold">Team Settings:</p>
                 <div className="flex items-start justify-start gap-4">
-                    <Button>Add Team</Button>
-                    <Button>View Team</Button>
+                    <AddTeamDialog />
+                    <ViewTeam />
                 </div>
-                
+
             </div>
             <div>
                 <p className="text-2xl font-gbold">Description Fund Type:</p>

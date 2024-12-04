@@ -8,11 +8,11 @@ import { Suspense, lazy } from "react";
 import NotFound from "./screens/notFound";
 import Loader from './components/loader/loader.tsx';
 
-const Page1= lazy(() =>
+const Page1 = lazy(() =>
   wait(1300).then(() => import("./screens/page1.tsx"))
 );
 
-const Page2= lazy(() =>
+const Page2 = lazy(() =>
   wait(1300).then(() => import("./screens/page2.tsx"))
 );
 
@@ -21,12 +21,17 @@ const Page2= lazy(() =>
 const Login = lazy(() =>
   wait(1300).then(() => import("./screens/auth/Login.tsx"))
 );
-const ResetPassword= lazy(() =>
+const ResetPassword = lazy(() =>
   wait(1300).then(() => import("./screens/auth/ResetPassword.tsx"))
 );
 const ForgotPassword = lazy(() =>
   wait(1300).then(() => import("./screens/auth/forgotPass.tsx"))
 );
+
+const AddRecord = lazy(() =>
+  wait(1300).then(() => import("./screens/add_record/AddRecordContainer.tsx"))
+);
+
 const router = createBrowserRouter([
   {
 
@@ -51,36 +56,44 @@ const router = createBrowserRouter([
   },
   {
     path: "/reset-password/:uid/:token",
-    element:  <>
-    <Suspense fallback={<Loader />}>
-      <ResetPassword  />
-    </Suspense>
-  </>,
+    element: <>
+      <Suspense fallback={<Loader />}>
+        <ResetPassword />
+      </Suspense>
+    </>,
   },
   {
     path: "/admin/",
     element: <App />,
-    
+
     children: [
       {
-        path: "/admin/", 
-        element: <Navigate to="/admin/page1" />, 
+        path: "/admin/",
+        element: <Navigate to="/admin/page1" />,
+      },
+      {
+        path: "/admin/add-record",
+        element: <>
+          <Suspense fallback={<Loader />}>
+            <AddRecord />
+          </Suspense>
+        </>,
       },
       {
         path: "/admin/page1",
         element: <>
-        <Suspense fallback={<Loader />}>
-          <Page1 />
-        </Suspense>
-      </>,
+          <Suspense fallback={<Loader />}>
+            <Page1 />
+          </Suspense>
+        </>,
       },
       {
         path: "/admin/page2",
         element: <>
-        <Suspense fallback={<Loader />}>
-          <Page2 />
-        </Suspense>
-      </>,
+          <Suspense fallback={<Loader />}>
+            <Page2 />
+          </Suspense>
+        </>,
       },
 
 
@@ -93,7 +106,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-function wait( time:number) {
+function wait(time: number) {
   return new Promise((resolve) => {
     setTimeout(resolve, time);
   });

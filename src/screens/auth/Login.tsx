@@ -34,7 +34,7 @@ function Login() {
 
 
     return (
-        <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+        <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
             <div className='   bg-background relative w-screen h-screen overflow-hidden flex justify-center'>
                 <div className=' absolute right-0 p-10 z-30'>
                     <ModeToggle />
@@ -80,9 +80,8 @@ function Login() {
                                         timer: 2000
                                     });
                                     localStorage.setItem("user", JSON.stringify(z.data))
-                                    console.log(z.data)
-                                    console.log(z.data.access_lvl)
-                                    if (z.data.access_lvl === 14) {
+                                
+                                    if (z.data.acc_lvl === 1) {
                                         navigate('/admin')
                                     }
                                     else {

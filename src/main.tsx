@@ -1,28 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-import App from './App.tsx'
+import App from './screens/admin/App.tsx';
 import './index.css'
 import { Suspense, lazy } from "react";
 
 import NotFound from "./screens/notFound";
 import Loader from './components/loader/loader.tsx';
 
-const Page1= lazy(() =>
-  wait(1300).then(() => import("./screens/page1.tsx"))
-);
 
 const Menu= lazy(() =>
-  wait(1300).then(() => import("./screens/menu/MenuContainer.tsx"))
+  wait(1300).then(() => import("./screens/admin/menu/MenuContainer.tsx"))
 );
 
 const Settings= lazy(() =>
-  wait(1300).then(() => import("./screens/settings/SettingsContainer.tsx"))
+  wait(1300).then(() => import("./screens/admin/settings/SettingsContainer.tsx"))
 );
 
-const Page2= lazy(() =>
-  wait(1300).then(() => import("./screens/page2.tsx"))
-);
 
 
 
@@ -72,7 +66,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin/", 
-        element: <Navigate to="/admin/page1" />, 
+        element: <Navigate to="/admin/menu" />, 
       },
       {
         path: "/admin/menu",

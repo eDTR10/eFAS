@@ -1,20 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-import App from './App.tsx'
+
 import './index.css'
 import { Suspense, lazy } from "react";
 
 import NotFound from "./screens/notFound";
 import Loader from './components/loader/loader.tsx';
+import App from './screens/admin/App.tsx';
 
-const Page1 = lazy(() =>
-  wait(1300).then(() => import("./screens/page1.tsx"))
+
+const Menu = lazy(() =>
+  wait(1300).then(() => import("./screens/admin/menu/MenuContainer.tsx"))
 );
 
-const Page2 = lazy(() =>
-  wait(1300).then(() => import("./screens/page2.tsx"))
+const Settings = lazy(() =>
+  wait(1300).then(() => import("./screens/admin/settings/SettingsContainer.tsx"))
 );
+
 
 
 
@@ -69,7 +72,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin/",
-        element: <Navigate to="/admin/page1" />,
+        element: <Navigate to="/admin/menu" />,
       },
       {
         path: "/admin/add-record",
@@ -80,21 +83,22 @@ const router = createBrowserRouter([
         </>,
       },
       {
-        path: "/admin/page1",
+        path: "/admin/menu",
         element: <>
           <Suspense fallback={<Loader />}>
-            <Page1 />
+            <Menu />
           </Suspense>
         </>,
       },
       {
-        path: "/admin/page2",
+        path: "/admin/settings",
         element: <>
           <Suspense fallback={<Loader />}>
-            <Page2 />
+            <Settings />
           </Suspense>
         </>,
       },
+
 
 
 

@@ -104,7 +104,7 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
-            <div ref={dialogRef} className="bg-white p-6 rounded-md w-full max-w-4xl h-[80vh] overflow-y-auto">
+            <div ref={dialogRef} className="bg-card text-primary p-6 rounded-md w-full max-w-4xl h-[80vh] overflow-y-auto">
                 <h2 className="text-xl font-semibold mb-4">Add Record</h2>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -149,7 +149,7 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                             type="date"
                             value={dateReceivedInEmail}
                             onChange={(e) => setDateReceivedInEmail(e.target.value)}
-                            className="mt-1 p-2 border rounded w-full"
+                            className="mt-1 p-2 border text-black z rounded w-full"
                         />
                     </div>
                     <div>
@@ -158,7 +158,7 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                             type="date"
                             value={dateOfSARO}
                             onChange={(e) => setDateOfSARO(e.target.value)}
-                            className="mt-1 p-2 border rounded w-full"
+                            className="mt-1 p-2 border text-black rounded w-full"
                         />
                     </div>
                     <div>

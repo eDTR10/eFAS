@@ -16,19 +16,15 @@ module.exports = {
       },
     },
     screens: {
-
-      'lg': {'max': '1220px'},
-      // => @media (max-width: 1023px) { ... }
-
-      'slg': {'max': '1100px'},
-      // => @media (max-width: 1023px) { ... }
-
-      'md': {'max': '767px'},
-      // => @media (max-width: 767px) { ... }
-
-      'sm': {'max': '639px'},
-      // => @media (max-width: 639px) { ... }
-  },
+      'lg': { 'max': '1220px' },
+      'slg': { 'max': '1100px' },
+      'xslg': { 'max': '970px' },
+      'xxslg': { 'max': '820px' },
+      'md': { 'max': '767px' },
+      'sm': { 'max': '639px' },
+      'xs': { 'max': '479px' },
+      'phone': { 'max': '375px' },
+    },
     extend: {
 
       fontFamily: {

@@ -131,7 +131,7 @@ const AddRecordTable = () => {
             <div className="overflow-x-auto border border-primary mt-4">
 
                 <Table className="w-full">
-                    <TableHeader className="sticky top-0 bg-white z-10">
+                    <TableHeader className="sticky top-0 bg-card z-10">
                         <TableRow>
                             {/* <TableHead className="w-[50px]">No.</TableHead> */}
                             <TableHead className="w-[150px]">Actions</TableHead>
@@ -319,9 +319,9 @@ const AddRecordTable = () => {
                             </TableHead>
                         </TableRow>
                     </TableHeader>
-                    <TableBody>
+                    <TableBody >
                         {currentRecords.map((allocation: any, index: any) => (
-                            <TableRow key={allocation.saroID} className="bg-green-100">
+                            <TableRow key={allocation.saroID} className="text-primary">
                                 {/* <TableCell>{index + 1}</TableCell> */}
                                 <TableCell className="flex gap-2">
                                     <button
@@ -370,7 +370,7 @@ const AddRecordTable = () => {
                 >
                     Previous
                 </button>
-                <span>Page {currentPage} of {totalPages}</span>
+                <span className='text-foreground'>Page {currentPage} of {totalPages}</span>
                 <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}

@@ -48,7 +48,10 @@ function Nav() {
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
         
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={()=>{
+            
+            navigate("/admin/settings")
+        }}>
             Settings
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>

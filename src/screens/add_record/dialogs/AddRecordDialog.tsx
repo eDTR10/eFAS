@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Input } from '@/components/ui/input';
 
 const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
     const [region, setRegion] = useState('');
@@ -104,12 +105,12 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
-            <div ref={dialogRef} className="bg-card text-primary p-6 rounded-md w-full max-w-4xl h-[80vh] overflow-y-auto">
+            <div ref={dialogRef} className="bg-card text-accent-foreground p-6 rounded-md w-full max-w-4xl h-[80vh] overflow-y-auto">
                 <h2 className="text-xl font-semibold mb-4">Add Record</h2>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="block text-sm font-medium">Region</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Region</label>
+                        <Input
                             type="text"
                             value={region}
                             onChange={(e) => setRegion(e.target.value)}
@@ -117,8 +118,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Program</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Program</label>
+                        <Input
                             type="text"
                             value={program}
                             onChange={(e) => setProgram(e.target.value)}
@@ -126,8 +127,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Fund Type</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Fund Type</label>
+                        <Input
                             type="text"
                             value={fundType}
                             onChange={(e) => setFundType(e.target.value)}
@@ -135,8 +136,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Amount</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Amount</label>
+                        <Input
                             type="text"
                             value={amount}
                             onChange={(e) => setAmount(e.target.value)}
@@ -144,8 +145,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Date Received</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Date Received</label>
+                        <Input
                             type="date"
                             value={dateReceivedInEmail}
                             onChange={(e) => setDateReceivedInEmail(e.target.value)}
@@ -153,8 +154,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Date of SARO</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Date of SARO</label>
+                        <Input
                             type="date"
                             value={dateOfSARO}
                             onChange={(e) => setDateOfSARO(e.target.value)}
@@ -162,8 +163,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Allotment No</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Allotment No</label>
+                        <Input
                             type="text"
                             value={allotmentNo}
                             onChange={(e) => setAllotmentNo(e.target.value)}
@@ -171,8 +172,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Notes Validity</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Notes Validity</label>
+                        <Input
                             type="text"
                             value={notesValidity}
                             onChange={(e) => setNotesValidity(e.target.value)}
@@ -180,8 +181,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">PAP</label>
-                        <input
+                        <label className="block text-sm font-gmedium">PAP</label>
+                        <Input
                             type="text"
                             value={pap}
                             onChange={(e) => setPap(e.target.value)}
@@ -189,8 +190,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Description</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Description</label>
+                        <Input
                             type="text"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
@@ -198,7 +199,7 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Class Type</label>
+                        <label className="block text-sm font-gmedium">Class Type</label>
                         <select
                             value={classType}
                             onChange={(e) => setClassType(e.target.value)}
@@ -211,8 +212,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         </select>
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Object Code No</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Object Code No</label>
+                        <Input
                             type="text"
                             value={objectCodeNo}
                             onChange={(e) => setObjectCodeNo(e.target.value)}
@@ -220,8 +221,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Object Code Desc</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Object Code Desc</label>
+                        <Input
                             type="text"
                             value={objectCodeDesc}
                             onChange={(e) => setObjectCodeDesc(e.target.value)}
@@ -229,8 +230,8 @@ const AddRecordDialog = ({ isOpen, onClose, onSave }: any) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Purpose</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Purpose</label>
+                        <Input
                             type="text"
                             value={purpose}
                             onChange={(e) => setPurpose(e.target.value)}

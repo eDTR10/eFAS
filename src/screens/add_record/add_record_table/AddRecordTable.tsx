@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
-    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
@@ -14,6 +12,7 @@ import Swal from 'sweetalert2';
 import UpdateRecordDialog from '../dialogs/UpdateRecordDialog';
 import ViewRecordDialog from '../dialogs/ViewRecordDialog';
 import { RefreshCcw } from 'lucide-react';
+import FormattedMoney from '@/components/formater/Money';
 
 const AddRecordTable = () => {
     const [records, setRecords] = useState([]);
@@ -355,7 +354,9 @@ const AddRecordTable = () => {
                                 <TableCell>{allocation.class_type}</TableCell>
                                 <TableCell>{allocation.object_code_no}</TableCell>
                                 <TableCell>{allocation.object_code_desc}</TableCell>
-                                <TableCell className="text-right">{allocation.amount}</TableCell>
+                                <TableCell className="text-right">
+                                    <FormattedMoney value={allocation?.amount}/>
+                                </TableCell>
                                 <TableCell>{allocation.purpose}</TableCell>
                             </TableRow>
                         ))}

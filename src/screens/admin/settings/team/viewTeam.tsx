@@ -19,6 +19,8 @@ import {
   import axios from '../../../../plugin/axios';
 import { useEffect, useState } from "react";
 import {  Edit, Trash2Icon, } from "lucide-react";
+import Swal from "sweetalert2";
+import FormattedMoney from "@/components/formater/Money";
   
   
 
@@ -42,6 +44,40 @@ function ViewTeam() {
         teamList()
         
     }, []);
+
+    function Delete(id:any){
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            
+
+
+            if (result.isConfirmed) {
+                axios.delete(`team/${id}`,{
+                    headers: {
+                        Authorization: `Token ${localStorage.getItem("accessToken")}`,
+                      },
+                }).then((e)=>{
+                    console.log(e)
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    teamList()
+                })
+            }
+          });
+        
+    }
     
   return (
     <div className="">
@@ -74,11 +110,13 @@ function ViewTeam() {
                                                     <TableRow key={index} className="border border-border">
                                                         <TableCell>{team?.team_code}</TableCell>
                                                         <TableCell>{team?.name}</TableCell>
-                                                        <TableCell>{team?.budget}</TableCell>
+                                                        <TableCell> <FormattedMoney value={team?.budget}/></TableCell>
                                                         <TableCell>
-                                                            <div className="flex flex-row">
-                                                                <Edit className="w-5 h-5 text-lime-700 font-bold"/>
-                                                                <Trash2Icon className="w-5 h-5 text-red-700 font-bold"/>
+                                                            <div className="flex  gap-3">
+                                                                <Edit className="w-5 h-5 text-primary cursor-pointer font-bold"/>
+                                                                <Trash2Icon onClick={()=>{
+                                                                    Delete(team.id)
+                                                                }} className="w-5 h-5 cursor-pointer text-red-700 font-bold"/>
                                                             </div>
                                                         </TableCell>
                                                     </TableRow>

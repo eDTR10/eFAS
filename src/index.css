@@ -99,6 +99,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.swal2-container {
+  z-index: 9999999999999999999 !important;
+  pointer-events:visible;
+  
+}
 
 
 

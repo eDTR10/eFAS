@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import Swal from 'sweetalert2';
 
-const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) => {
+import { Input } from '@/components/ui/input';
+
+const ViewRecordDialog = ({ isOpen, onClose, record }: any) => {
     const [region, setRegion] = useState('');
     const [program, setProgram] = useState('');
     const [fundType, setFundType] = useState('');
@@ -62,12 +62,12 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
-            <div ref={dialogRef} className="bg-card text-primary p-6 rounded-md w-full max-w-4xl h-[80vh] overflow-y-auto">
+            <div ref={dialogRef} className="bg-card text-accent-foreground p-6 rounded-md w-full max-w-4xl h-[80vh] overflow-y-auto">
                 <h2 className="text-xl font-semibold mb-4">Viewing Record</h2>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="block text-sm font-medium">Region</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Region</label>
+                        <Input
                             disabled
                             type="text"
                             value={region}
@@ -76,8 +76,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Program</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Program</label>
+                        <Input
                             disabled
                             type="text"
                             value={program}
@@ -86,8 +86,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Fund Type</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Fund Type</label>
+                        <Input
                             disabled
                             type="text"
                             value={fundType}
@@ -96,8 +96,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Amount</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Amount</label>
+                        <Input
                             disabled
                             type="text"
                             value={amount}
@@ -106,8 +106,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Date Received</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Date Received</label>
+                        <Input
                             disabled
                             type="date"
                             value={dateReceivedInEmail}
@@ -116,8 +116,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Date of SARO</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Date of SARO</label>
+                        <Input
                             disabled
                             type="date"
                             value={dateOfSARO}
@@ -126,8 +126,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Allotment No</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Allotment No</label>
+                        <Input
                             disabled
                             type="text"
                             value={allotmentNo}
@@ -136,8 +136,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Notes Validity</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Notes Validity</label>
+                        <Input
                             disabled
                             type="text"
                             value={notesValidity}
@@ -146,8 +146,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">PAP</label>
-                        <input
+                        <label className="block text-sm font-gmedium">PAP</label>
+                        <Input
                             disabled
                             type="text"
                             value={pap}
@@ -156,8 +156,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Description</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Description</label>
+                        <Input
                             disabled
                             type="text"
                             value={description}
@@ -166,8 +166,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Class Type</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Class Type</label>
+                        <Input
                             disabled
                             type="text"
                             value={classType}
@@ -176,8 +176,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Object Code No</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Object Code No</label>
+                        <Input
                             disabled
                             type="text"
                             value={objectCodeNo}
@@ -186,8 +186,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Object Code Desc</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Object Code Desc</label>
+                        <Input
                             disabled
                             type="text"
                             value={objectCodeDesc}
@@ -196,8 +196,8 @@ const ViewRecordDialog = ({ isOpen, onClose, record, onSave, getRecords }: any) 
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium">Purpose</label>
-                        <input
+                        <label className="block text-sm font-gmedium">Purpose</label>
+                        <Input
                             disabled
                             type="text"
                             value={purpose}

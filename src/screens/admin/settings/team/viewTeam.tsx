@@ -16,32 +16,11 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  import axios from '../../../../plugin/axios';
-import { useEffect, useState } from "react";
 import {  Edit, Trash2Icon, } from "lucide-react";
   
-  
 
-
-function ViewTeam() {
-    const [teamAll, setTeamAll] = useState<any>([])
-
-    function teamList() {
-        axios.get('team/all/', {
-            headers: {
-                Authorization: `Token ${localStorage.getItem("accessToken")}`,
-              },
-        }).then((team:any) => {
-            setTeamAll(team.data);
-            console.log(team);
-        })
-        
-    }
-
-    useEffect(() => {
-        teamList()
-        
-    }, []);
+function ViewTeam({teamList, teamAll}:any) {
+    
     
   return (
     <div className="">
@@ -57,13 +36,10 @@ function ViewTeam() {
                                 <Table  className="w-full"   >
                                     <TableHeader  className="sticky top-0  z-10 bg-primary">
                                         <TableRow>
-                                            
-                                                <TableHead className="text-md  w-[300px]   text-accent font-gbold">Team Code</TableHead>
-                                                <TableHead className="text-md  w-[400px]    text-accent  font-gbold">Team Name</TableHead>
-                                                <TableHead className="text-md   text-accent  font-gbold">Total Budget</TableHead>
-                                                <TableHead className="text-md    text-accent  font-gbold">Action</TableHead>
-                                          
-                                           
+                                            <TableHead className="text-md  w-[300px]   text-accent font-gbold">Team Code</TableHead>
+                                            <TableHead className="text-md  w-[400px]    text-accent  font-gbold">Team Name</TableHead>
+                                            <TableHead className="text-md   text-accent  font-gbold">Total Budget</TableHead>
+                                            <TableHead className="text-md    text-accent  font-gbold">Action</TableHead>
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody >

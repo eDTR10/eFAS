@@ -13,20 +13,16 @@ function viewFund({fundType, fundAll}:any) {
         </DialogTrigger>
         <DialogContent className="max-w-xl h-[50vh]">
             <DialogHeader>
-                <DialogTitle className="text-2xl text-start font-gbold">List of Team</DialogTitle>
+                <DialogTitle className=" text-2xl text-start font-gbold">List of Funds</DialogTitle>
                     <DialogDescription>
-                        <div className="overflow-auto bg-primary-foreground h-[40vh]">
                             <Table className="w-full ">
-                                <TableHeader className=" border border-primary-foreground">
+                                <TableHeader  className="sticky top-0  z-10 bg-primary">
                                     <TableRow>
-                                        <div className="fixed top-14 bg-primary-foreground w-[90%]">
-                                            <TableHead className="text-lg text-end font-gbold">Fund type</TableHead>
-                                            <TableHead className="text-lg text-end font-gbold">Action</TableHead>
-                                        </div>
+                                        <TableHead className="text-md  w-[300px]   text-accent font-gbold">Fund type</TableHead>
+                                        <TableHead className="text-md  w-[300px]   text-accent font-gbold">Action</TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
-                                <div className="mt-10 w-[100%] border border-primary-foreground">
                                     {fundAll && fundAll.length > 0 ? (
                                     fundAll.map((fund:any, index:any) => (
                                         <TableRow key={index}>
@@ -41,13 +37,13 @@ function viewFund({fundType, fundAll}:any) {
                                     ))
                                     ) : (
                                         <TableRow>
-                                            <TableCell colSpan={3}>No Team Found</TableCell>
+                                            <TableCell colSpan={3}>No Funds Found</TableCell>
                                         </TableRow>
                                     )}
-                                        </div>
+                                      
                                 </TableBody>
                             </Table>
-                        </div>
+                        
                     </DialogDescription>
                 </DialogHeader>
         </DialogContent>

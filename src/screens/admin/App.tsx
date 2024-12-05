@@ -15,9 +15,9 @@ function App() {
  
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-     <div className=" bg-background min-h-screen w-full overflow-hidden flex flex-col  items-center">
+     <div className=" bg-background min-h-screen  w-full overflow-hidden flex flex-col  items-center">
       
-      <nav className=" animate__animated animate__slideInDown  z-20 bg-background fixed flex justify-between items-center w-full max-w-[1468px] py-5 border-b-[0px] border-accent \ ">
+      <nav className=" animate__animated animate__slideInDown  z-20 bg-none fixed  flex justify-between items-center w-full max-w-[1468px] py-5 border-b-[0px] border-accent \ ">
         <Link className=" ml-5  bg-[#edf7f0]  flex items-center justify-center  rounded-md" to="/admin" >
           <img src={Logo} className="logo  w-32 sm:w-24 object-contain " alt="Vite logo" />
         </Link>

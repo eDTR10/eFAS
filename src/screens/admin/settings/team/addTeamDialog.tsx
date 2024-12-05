@@ -9,8 +9,9 @@ import {
   } from "@/components/ui/dialog"
 import { constants } from "buffer";
 import { useState } from "react";
-import axios from '../../../plugin/axios';
+import axios from '../../../../plugin/axios';
 import Swal from "sweetalert2";
+import { Input } from "@/components/ui/input";
 
 function AddTeamDialog({teamList}:any) {
   const [name, setName] = useState<any>(''); 
@@ -58,17 +59,17 @@ function AddTeamDialog({teamList}:any) {
                           <div> 
                             <div className="mb-5"> 
                               <label className="block text-sm font-medium text-start mt-5">Team code</label> 
-                              <input type="text" 
+                              <Input type="text" 
                               value={teamCode} onChange={(e) => setTeamCode(e.target.value)} 
                               className="mt-1 p-2 border rounded w-full" /> 
                               </div> 
                               <div className="mb-5"> 
                                 <label className="block text-sm font-medium text-start">Team name</label> 
-                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} 
+                                <Input type="text" value={name} onChange={(e) => setName(e.target.value)} 
                                 className="mt-1 p-2 border rounded w-full" /> </div> 
                                 <div className="mb-5"> 
                                   <label className="block text-sm font-medium text-start">Total budget</label> 
-                                  <input type="text" value={totalBudget} onChange={(e) => setTotalBudget(Number(e.target.value))} 
+                                  <Input type="number" value={totalBudget} onChange={(e) => setTotalBudget(Number(e.target.value))} 
                                   className="mt-1 p-2 border rounded w-full" /> 
                                   </div> 
                                   <Button className="bg-primary w-full" onClick={addTeamSave}>Save</Button> 

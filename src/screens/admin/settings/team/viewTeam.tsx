@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogHeader,
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
@@ -18,9 +16,9 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  import axios from '../../../plugin/axios';
+  import axios from '../../../../plugin/axios';
 import { useEffect, useState } from "react";
-import { Delete, DeleteIcon, Edit, EyeIcon, Trash2Icon, View, ViewIcon } from "lucide-react";
+import {  Edit, Trash2Icon, } from "lucide-react";
   
   
 
@@ -51,29 +49,29 @@ function ViewTeam() {
             <DialogTrigger>
                 <Button onClick={teamList}>View Team</Button>
             </DialogTrigger>
-            <DialogContent className="max-w-xl h-[50vh]">
-                <DialogHeader>
+            <DialogContent className="max-w-[500px] md:w-[95%] min-h-[50vh] rounded-sm ">
+                
                     <DialogTitle className=" text-2xl text-start font-gbold">List of Team</DialogTitle>
-                        <DialogDescription>
-                            <div className=" overflow-auto bg-primary-foreground h-[40vh]">
-                                <Table className="w-full ">
-                                    <TableHeader className=" border border-primary-foreground">
+                        <div className="overflow-x-auto border border-primary mt-4">
+               
+                                <Table  className="w-full"   >
+                                    <TableHeader  className="sticky top-0  z-10 bg-primary">
                                         <TableRow>
-                                            <div className="fixed top-14 bg-primary-foreground w-[90%]">
-                                                <TableHead className="text-lg text-center font-gbold">Team Code</TableHead>
-                                                <TableHead className="text-lg text-center font-gbold">Team Name</TableHead>
-                                                <TableHead className="text-lg text-center font-gbold">Total Budget</TableHead>
-                                                <TableHead className="text-lg text-center font-gbold">Action</TableHead>
-                                            </div>
+                                            
+                                                <TableHead className="text-md  w-[300px]   text-accent font-gbold">Team Code</TableHead>
+                                                <TableHead className="text-md  w-[400px]    text-accent  font-gbold">Team Name</TableHead>
+                                                <TableHead className="text-md   text-accent  font-gbold">Total Budget</TableHead>
+                                                <TableHead className="text-md    text-accent  font-gbold">Action</TableHead>
+                                          
                                            
                                         </TableRow>
                                     </TableHeader>
-                                    <TableBody>
-                                    <div className="mt-10 border border-primary-foreground">
+                                    <TableBody >
+                        
                                         {teamAll && teamAll.length > 0 ? (
                                             teamAll.map((team: any, index: any) => (
                                               
-                                                    <TableRow key={index} className="">
+                                                    <TableRow key={index} className="border border-border">
                                                         <TableCell>{team?.team_code}</TableCell>
                                                         <TableCell>{team?.name}</TableCell>
                                                         <TableCell>{team?.budget}</TableCell>
@@ -92,13 +90,13 @@ function ViewTeam() {
                                                 <TableCell colSpan={3}>No Team Found</TableCell>
                                             </TableRow>
                                         )}
-                                         </div>
+                                         
                                     </TableBody>
                                 </Table>
-                            </div>
                        
-                        </DialogDescription>
-                    </DialogHeader>
+                       
+                        </div>
+                    
             </DialogContent>
         </Dialog>
     </div>

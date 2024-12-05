@@ -10,10 +10,8 @@ function SettingsContainer() {
   return (
     <>
         <div className="relative">
-            <div className="absolute -left-[700px] phone:left-0 sm:-left-48  top-32 items-start justify-start">
-                <Button className="phone:w-[150%] sm:w-[150%]" onClick={() => {
-        navigate("/admin/menu");
-    }}>
+            <div className="absolute -left-[700px] phone:left-0 sm:-left-48 top-32 items-start justify-start">
+                <Button className="phone:w-[150%] sm:w-[150%]" onClick={() => { navigate("/admin/menu"); }}>
                     Go Back
                 </Button>
             </div>

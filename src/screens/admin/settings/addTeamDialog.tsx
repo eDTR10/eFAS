@@ -7,7 +7,6 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
-import { constants } from "buffer";
 import { useState } from "react";
 import axios from '../../../plugin/axios';
 import Swal from "sweetalert2";
@@ -38,10 +37,13 @@ function AddTeamDialog({teamList}:any) {
 
       setIsDialogOpen(false); 
       teamList();
-      setName(''); setTeamCode('');
+      setName(''); 
+      setTeamCode('');
       setTotalBudget(0); 
     } catch (error) { 
-      console.error('Error saving team:', error); } };
+      console.error('Error saving team:', error); 
+    } 
+  };
 
 
   return (
@@ -59,7 +61,7 @@ function AddTeamDialog({teamList}:any) {
                             <div className="mb-5"> 
                               <label className="block text-sm font-medium text-start mt-5">Team code</label> 
                               <input type="text" 
-                              value={teamCode} onChange={(e) => setTeamCode(e.target.value)} 
+                              value={teamCode} required onChange={(e) => setTeamCode(e.target.value)} 
                               className="mt-1 p-2 border rounded w-full" /> 
                               </div> 
                               <div className="mb-5"> 
@@ -80,7 +82,7 @@ function AddTeamDialog({teamList}:any) {
                        
                     </DialogHeader>
             </DialogContent>
-        </Dialog>
+     </Dialog>
     </>
   )
 }

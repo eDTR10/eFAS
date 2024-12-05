@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogHeader,
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
@@ -18,8 +16,9 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  import axios from '../../plugin/axios';
+  import axios from '../../../../plugin/axios';
 import { useEffect, useState } from "react";
+import {  Edit, Trash2Icon, } from "lucide-react";
   
   
 
@@ -30,8 +29,8 @@ function ViewTeam() {
     function teamList() {
         axios.get('team/all/', {
             headers: {
-                Authorization: `Token 6e5ee24e6c25fe08834ab33646721e880887efe4`,
-            },
+                Authorization: `Token ${localStorage.getItem("accessToken")}`,
+              },
         }).then((team:any) => {
             setTeamAll(team.data);
             console.log(team);
@@ -45,38 +44,59 @@ function ViewTeam() {
     }, []);
     
   return (
-    <div >
-    <Dialog>
+    <div className="">
+    <Dialog >
             <DialogTrigger>
-                <Button>View Team</Button>
+                <Button onClick={teamList}>View Team</Button>
             </DialogTrigger>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle className="text-start font-gbold">List of Team</DialogTitle>
-                        <DialogDescription>
-                            <div className="overflow-auto bg-primary-foreground h-56 ">
-                                <Table className="">
-                                    <TableHeader >
+            <DialogContent className="max-w-[500px] md:w-[95%] min-h-[50vh] rounded-sm ">
+                
+                    <DialogTitle className=" text-2xl text-start font-gbold">List of Team</DialogTitle>
+                        <div className="overflow-x-auto border border-primary mt-4">
+               
+                                <Table  className="w-full"   >
+                                    <TableHeader  className="sticky top-0  z-10 bg-primary">
                                         <TableRow>
-                                            <TableHead className="text-center sticky">Team Code</TableHead>
-                                            <TableHead className="text-center sticky">Team Name</TableHead>
-                                            <TableHead className="text-center sticky">Total Budget</TableHead>
+                                            
+                                                <TableHead className="text-md  w-[300px]   text-accent font-gbold">Team Code</TableHead>
+                                                <TableHead className="text-md  w-[400px]    text-accent  font-gbold">Team Name</TableHead>
+                                                <TableHead className="text-md   text-accent  font-gbold">Total Budget</TableHead>
+                                                <TableHead className="text-md    text-accent  font-gbold">Action</TableHead>
+                                          
+                                           
                                         </TableRow>
                                     </TableHeader>
-                                    <TableBody>
-                                       
-                                        <TableRow >
-                                            <TableCell></TableCell>
-                                            <TableCell></TableCell>
-                                            <TableCell></TableCell>
-                                        </TableRow>
-                                      
+                                    <TableBody >
+                        
+                                        {teamAll && teamAll.length > 0 ? (
+                                            teamAll.map((team: any, index: any) => (
+                                              
+                                                    <TableRow key={index} className="border border-border">
+                                                        <TableCell>{team?.team_code}</TableCell>
+                                                        <TableCell>{team?.name}</TableCell>
+                                                        <TableCell>{team?.budget}</TableCell>
+                                                        <TableCell>
+                                                            <div className="flex flex-row">
+                                                                <Edit className="w-5 h-5 text-lime-700 font-bold"/>
+                                                                <Trash2Icon className="w-5 h-5 text-red-700 font-bold"/>
+                                                            </div>
+                                                        </TableCell>
+                                                    </TableRow>
+                                               
+                                               
+                                            ))
+                                        ) : (
+                                            <TableRow>
+                                                <TableCell colSpan={3}>No Team Found</TableCell>
+                                            </TableRow>
+                                        )}
+                                         
                                     </TableBody>
                                 </Table>
-                            </div>
                        
-                        </DialogDescription>
-                    </DialogHeader>
+                       
+                        </div>
+                    
             </DialogContent>
         </Dialog>
     </div>

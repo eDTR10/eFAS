@@ -6,7 +6,7 @@ import { Link, Outlet } from "react-router-dom";
 // import { ModeToggle } from "./components/mode-toggle";
 // import Reveal from "./components/animation/reveal";
 import Logo  from './../../assets/eDTR-logo.webp'
-import NavLink from "../../components/link/link";
+
 import { ModeToggle } from "../../components/mode-toggle";
 import Nav from "@/components/nav/nav";
 

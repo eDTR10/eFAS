@@ -2,9 +2,26 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Edit, Trash2Icon } from "lucide-react"
+import axios from '../../../../plugin/axios';
+import { useEffect, useState } from "react";
 
+function viewFund() {
+    const [fundAll, setFundAll] = useState<any>([])
 
-function viewFund({fundType, fundAll}:any) {
+    function fundType() {
+        axios.get('fund/all/', {
+            headers: {
+                Authorization: `Token ${localStorage.getItem("accessToken")}`,
+              },
+        }).then((fund:any) => {
+            setFundAll(fund.data);
+            console.log(fund);
+        })
+    }
+
+    useEffect(() => {
+        fundType();
+    }, []);
   return (
     <>
     <Dialog >

@@ -75,7 +75,7 @@ function AddTeamDialog({teamList}:any) {
                                 className="mt-1 p-2 border rounded w-full" /> </div> 
                                 <div className="mb-5"> 
                                   <label className="block text-sm font-medium text-start">Total budget</label> 
-                                  <Input type="number" value={totalBudget} onChange={(e) => setTotalBudget(Number(e.target.value))} 
+                                  <Input type="number" value={totalBudget} min={totalBudget} onChange={(e) => setTotalBudget(Number(e.target.value))} 
                                   className="mt-1 p-2 border rounded w-full" /> 
                                   </div> 
                                   <Button className="bg-primary w-full" >Save</Button> 

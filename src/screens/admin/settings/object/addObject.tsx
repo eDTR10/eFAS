@@ -1,23 +1,28 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 import axios from '../../../../plugin/axios';
-import Swal from "sweetalert2";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
+import Swal from "sweetalert2";
 
-function addFundType({fundTypeTable}:any) {
-    const [fundType, setFundType] = useState<any>(''); 
+function addObject({objectType}:any) {
+    const [objectCodes, setObjectCodes] = useState<any>(''); 
+    const [objectNames, setObjects] = useState<any>(''); 
     const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
-
-    const addFundSave = async () => { 
-        const newFund = { fund_type: fundType, }; 
+    const objectSave = async () => { 
+        const newObject = { 
+            object_code: objectCodes,
+            name: objectNames }; 
         
         try { 
-            const response = await axios.post('fund/all/', newFund); 
+            const response = await axios.post('object/all/', newObject); 
             console.log('Fund saved successfully:', response.data);
 
-            setFundType(''); 
+          
+            setObjectCodes('') 
+            setObjects(''); 
+
             Swal.fire({ 
                 icon: "success", 
                 title: "Fund saved successfully ...", 
@@ -25,10 +30,9 @@ function addFundType({fundTypeTable}:any) {
             });
 
             setIsDialogOpen(false);
-            fundTypeTable();
-            setFundType(''); 
-            
-            
+            setObjectCodes('') 
+            setObjects(''); 
+            objectType();
                
             } catch (error) { 
                 console.error('Error saving Fund:', error); 
@@ -38,21 +42,30 @@ function addFundType({fundTypeTable}:any) {
     <>
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}> 
       <DialogTrigger> 
-        <Button onClick={() => setIsDialogOpen(true)}>Add Fund Type</Button> 
+        <Button onClick={() => setIsDialogOpen(true)}>Add Object</Button> 
         </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className="text-start font-gbold">Description Fund Type</DialogTitle>
+                    <DialogTitle className="text-start font-gbold">Add Object</DialogTitle>
                           <DialogDescription >
                           <form onSubmit={(e:any)=>{
                             e.preventDefault()
-                            addFundSave()
+                            objectSave()
                           }}> 
                           <div> 
                                 <div className="mb-5"> 
-                                    <label className="block text-sm font-medium text-start mt-5">Fund Type</label> 
+                                    <label className="block text-sm font-medium text-start mt-5">Object Code</label> 
                                     <Input type="text" className="mt-1 p-2 border rounded w-full" 
-                                    onChange={(e) => setFundType(e.target.value)} value={fundType} /> 
+                                    value={objectCodes}
+                                    onChange={(e) => setObjectCodes(e.target.value)}
+                                    /> 
+                                </div> 
+                                <div className="mb-5"> 
+                                    <label className="block text-sm font-medium text-start mt-5">Object Title</label> 
+                                    <Input type="text" className="mt-1 p-2 border rounded w-full" 
+                                    value={objectNames}
+                                    onChange={(e) => setObjects(e.target.value)}
+                                    /> 
                                 </div> 
                                 <Button className="bg-primary w-full">Save</Button> 
                             </div>
@@ -68,4 +81,4 @@ function addFundType({fundTypeTable}:any) {
   )
 }
 
-export default addFundType
+export default addObject

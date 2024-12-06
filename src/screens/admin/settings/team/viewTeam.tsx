@@ -79,58 +79,54 @@ function ViewTeam() {
     
   return (
     <div className="">
-    <Dialog >
-            <DialogTrigger>
-                <Button onClick={teamList}>View Team</Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-[500px] md:w-[95%] min-h-[50vh] rounded-sm ">
-                
-                    <DialogTitle className=" text-2xl text-start font-gbold">List of Team</DialogTitle>
-                        <div className="overflow-x-auto border border-primary mt-4">
-               
-                                <Table  className="w-full"   >
-                                    <TableHeader  className="sticky top-0  z-10 bg-primary">
-                                        <TableRow>
-                                            <TableHead className="text-md  w-[300px]   text-accent font-gbold">Team Code</TableHead>
-                                            <TableHead className="text-md  w-[400px]    text-accent  font-gbold">Team Name</TableHead>
-                                            <TableHead className="text-md   text-accent  font-gbold">Total Budget</TableHead>
-                                            <TableHead className="text-md    text-accent  font-gbold">Action</TableHead>
-                                        </TableRow>
-                                    </TableHeader>
-                                    <TableBody >
-                        
-                                        {teamAll && teamAll.length > 0 ? (
-                                            teamAll.map((team: any, index: any) => (
-                                              
-                                                    <TableRow key={index} className="border border-border">
-                                                        <TableCell>{team?.team_code}</TableCell>
-                                                        <TableCell>{team?.name}</TableCell>
-                                                        <TableCell> <FormattedMoney value={team?.budget}/></TableCell>
-                                                        <TableCell>
-                                                            <div className="flex  gap-3">
-                                                                <Edit className="w-5 h-5 text-primary cursor-pointer font-bold"/>
-                                                                <Trash2Icon onClick={()=>{
-                                                                    Delete(team.id)
-                                                                }} className="w-5 h-5 cursor-pointer text-red-700 font-bold"/>
-                                                            </div>
-                                                        </TableCell>
-                                                    </TableRow>
-                                               
-                                               
-                                            ))
-                                        ) : (
-                                            <TableRow>
-                                                <TableCell colSpan={3}>No Team Found</TableCell>
-                                            </TableRow>
-                                        )}
-                                         
-                                    </TableBody>
-                                </Table>
-                       
-                       
-                        </div>
+        <Dialog >
+                <DialogTrigger>
+                    <Button onClick={teamList}>View Team</Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-[500px] md:w-[95%] min-h-[50vh] rounded-sm ">
                     
-            </DialogContent>
+                        <DialogTitle className=" text-2xl text-start font-gbold">List of Team</DialogTitle>
+                            <div className="overflow-x-auto border border-primary mt-4">
+                
+                                    <Table  className="w-full"   >
+                                        <TableHeader  className="sticky top-0  z-10 bg-primary">
+                                            <TableRow>
+                                                <TableHead className="text-md  w-[300px]   text-accent font-gbold">Team Code</TableHead>
+                                                <TableHead className="text-md  w-[400px]    text-accent  font-gbold">Team Name</TableHead>
+                                                <TableHead className="text-md   text-accent  font-gbold">Total Budget</TableHead>
+                                                <TableHead className="text-md    text-accent  font-gbold">Action</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody >
+                            
+                                            {teamAll && teamAll.length > 0 ? (
+                                                teamAll.map((team: any, index: any) => (
+                                                
+                                                        <TableRow key={index} className="border border-border">
+                                                            <TableCell>{team?.team_code}</TableCell>
+                                                            <TableCell>{team?.name}</TableCell>
+                                                            <TableCell> <FormattedMoney value={team?.budget}/></TableCell>
+                                                            <TableCell>
+                                                                <div className="flex  gap-3">
+                                                                    <Edit className="w-5 h-5 text-primary cursor-pointer font-bold"/>
+                                                                    <Trash2Icon onClick={()=>{
+                                                                        Delete(team.id)
+                                                                    }} className="w-5 h-5 cursor-pointer text-red-700 font-bold"/>
+                                                                </div>
+                                                            </TableCell>
+                                                        </TableRow>
+                                                ))
+                                            ) : (
+                                                <TableRow>
+                                                    <TableCell colSpan={3}>No Team Found</TableCell>
+                                                </TableRow>
+                                            )}
+                                            
+                                        </TableBody>
+                                    </Table>
+                            </div>
+                        
+                </DialogContent>
         </Dialog>
     </div>
   )

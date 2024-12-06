@@ -1,59 +1,65 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 import axios from '../../../../plugin/axios';
-import Swal from "sweetalert2";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
+import Swal from "sweetalert2";
 
-function addFundType({fundTypeTable}:any) {
-    const [fundType, setFundType] = useState<any>(''); 
+function addClaimant({classType}:any) {
+    const [claimantName, setclaimantName] = useState<any>('')
     const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
-
-    const addFundSave = async () => { 
-        const newFund = { fund_type: fundType, }; 
+    const addClaimantSave = async () => { 
+        const newClaimant = { 
+            name: claimantName
+        }; 
         
         try { 
-            const response = await axios.post('fund/all/', newFund); 
-            console.log('Fund saved successfully:', response.data);
+            const response = await axios.post('claimant/all/', newClaimant); 
+            console.log('Claimant Added successfully:', response.data);
 
-            setFundType(''); 
+           
+            setclaimantName('');
+
             Swal.fire({ 
                 icon: "success", 
-                title: "Fund saved successfully ...", 
+                title: "Claimant Added successfully ...", 
                 showConfirmButton: false, timer: 2000 
             });
 
+         
             setIsDialogOpen(false);
-            fundTypeTable();
-            setFundType(''); 
-            
-            
+            classType();
+            setclaimantName('');
                
             } catch (error) { 
                 console.error('Error saving Fund:', error); 
             } 
         };
+    
   return (
     <>
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}> 
-      <DialogTrigger> 
-        <Button onClick={() => setIsDialogOpen(true)}>Add Fund Type</Button> 
+      <DialogTrigger > 
+        <Button onClick={() => setIsDialogOpen(true)}>Add Claimant</Button> 
         </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className="text-start font-gbold">Description Fund Type</DialogTitle>
+                    <DialogTitle className="text-start font-gbold">Add Claimant</DialogTitle>
                           <DialogDescription >
                           <form onSubmit={(e:any)=>{
                             e.preventDefault()
-                            addFundSave()
+                            addClaimantSave()
                           }}> 
                           <div> 
                                 <div className="mb-5"> 
-                                    <label className="block text-sm font-medium text-start mt-5">Fund Type</label> 
+                                    <label className="block text-sm font-medium text-start mt-5">Name</label> 
                                     <Input type="text" className="mt-1 p-2 border rounded w-full" 
-                                    onChange={(e) => setFundType(e.target.value)} value={fundType} /> 
-                                </div> 
+                                    value={claimantName} onChange={(e:any)=>setclaimantName(e.target.value)}
+                                   
+                                    
+                                    /> 
+                                </div>
                                 <Button className="bg-primary w-full">Save</Button> 
                             </div>
                             </form>
@@ -68,4 +74,4 @@ function addFundType({fundTypeTable}:any) {
   )
 }
 
-export default addFundType
+export default addClaimant

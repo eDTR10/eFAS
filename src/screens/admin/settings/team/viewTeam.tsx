@@ -21,6 +21,7 @@ import Swal from "sweetalert2";
 import FormattedMoney from "@/components/formater/Money";
 import { useEffect, useState } from "react";
 import axios from '../../../../plugin/axios';
+import UpdateTeamDialog from "./update";
 
 
 function ViewTeam() {
@@ -76,6 +77,8 @@ function ViewTeam() {
           });
         
     }
+
+    
     
   return (
     <div className="">
@@ -83,7 +86,7 @@ function ViewTeam() {
                 <DialogTrigger>
                     <Button onClick={teamList}>View Team</Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-[500px] md:w-[95%] min-h-[50vh] rounded-sm ">
+                <DialogContent className="max-w-[500px] md:w-[95%] min-h-[10vh] rounded-sm ">
                     
                         <DialogTitle className=" text-2xl text-start font-gbold">List of Team</DialogTitle>
                             <div className="overflow-x-auto border border-primary mt-4">
@@ -108,7 +111,7 @@ function ViewTeam() {
                                                             <TableCell> <FormattedMoney value={team?.budget}/></TableCell>
                                                             <TableCell>
                                                                 <div className="flex  gap-3">
-                                                                    <Edit className="w-5 h-5 text-primary cursor-pointer font-bold"/>
+                                                                    <UpdateTeamDialog teamList={teamList} data={team}/>
                                                                     <Trash2Icon onClick={()=>{
                                                                         Delete(team.id)
                                                                     }} className="w-5 h-5 cursor-pointer text-red-700 font-bold"/>

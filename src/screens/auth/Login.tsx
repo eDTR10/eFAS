@@ -22,7 +22,7 @@ function Login() {
         email: "", password: ""
     })
     useEffect(() => {
-        localStorage.getItem("accessToken") ? navigate('/admin/home') : ""
+        localStorage.getItem("accessToken") ? navigate('/admin') : ""
     }, [])
 
     useEffect(() => {
